@@ -1,18 +1,30 @@
 {
-  "name": "nodejs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "scripts": {
-    "watch":"node-sass src/resource/scss --output src/public/css --watch",
-    "start": "nodemon --inspect src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express-handlebars": "^7.0.7",
-    "morgan": "^1.10.0",
-    "node-sass": "^9.0.0"
-  }
+    "name": "nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "watch": "node-sass src/resource/scss --output src/public/css --watch",
+        "start": "nodemon --inspect src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+    },
+    "author": "",
+    "lint-staged":{
+      "src/**/*.{js,json,scss}":["prettier --single-quote --trailing-comma all --tab-width 4 --write"]
+    }
+    ,
+    "husky":{
+      "hooks":{
+        "pre-commit":"lint-staged"
+      }
+    },
+    "license": "ISC",
+    "dependencies": {
+        "express-handlebars": "^7.0.7",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.2",
+        "morgan": "^1.10.0",
+        "node-sass": "^9.0.0",
+        "prettier": "^2.8.8"
+    }
 }

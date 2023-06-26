@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const newController = require('../app/controller/NewsController');
+const newController = require("../app/controller/NewsController");
 
-router.use('/:slud', newController.show);
-router.use('/', newController.index);
+router.get("/:slud", newController.show);
+router.get("/", newController.index);
 module.exports = router;
